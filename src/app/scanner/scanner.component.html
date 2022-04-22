@@ -1,5 +1,5 @@
-<ion-header [translucent]="true">
-    <ion-toolbar color="primary">
+<ion-header [translucent]="true" style="display: none;">
+    <ion-toolbar style="color: transparent; z-index: 1;">
         <ion-buttons slot="start">
             <ion-button *ngIf="torchCompatible">
                 <ion-icon slot="icon-only" name="flash-outline" (click)="torchEnabled = !torchEnabled"></ion-icon>
@@ -7,21 +7,21 @@
             </ion-button>
         </ion-buttons>
         <ion-buttons slot="secondary">
-            <ion-button>
+            <!-- <ion-button>
                 <ion-icon slot="icon-only" name="images-outline"></ion-icon>
-            </ion-button>
+            </ion-button> -->
             <ion-button *ngIf="availableCameras && availableCameras.length > 1" (click)="switchCamera()">
-                <ion-icon slot="icon-only" name="camera-reverse-outline"></ion-icon>
+                <ion-icon  slot="icon-only" name="camera-reverse-outline" style="color: white; font-size: 1.5rem;"></ion-icon>
             </ion-button>
-            <ion-button routerLink="/tabs/about">
+            <!-- <ion-button routerLink="/tabs/about">
                 <ion-icon slot="icon-only" name="help-circle-outline"></ion-icon>
-            </ion-button>
+            </ion-button> -->
         </ion-buttons>
-        <ion-title class="ion-text-center">Scan QR Code</ion-title>
+        <ion-title class="ion-text-center" style="color: white; margin-right: -2rem; font-size: 1.5rem;">Cashpop Scanner</ion-title>
     </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" style="z-index: 0;">
     <div style="width: 100%; height: 100%">
         <zxing-scanner
                 style="height: 100%; width: 100%"

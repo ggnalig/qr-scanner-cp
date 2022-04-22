@@ -53,16 +53,22 @@ export class ScannerComponent implements OnInit {
                 tap(index => console.log('saved', index))
             )
             .subscribe(
-                (index: number) => this.router.navigateByUrl(`/tabs/details/${index}`)
+                () => {
+                     if (resultString.includes('http')) {
+                        window.location.href = resultString
+                     } else {
+                        (index: number) => this.router.navigateByUrl(`/tabs/details/${index}`)
+                    }
+                }
                 // TODO: Error handling
-            );
+        );
     }
 
     switchCamera(): void {
         this.currentCameraIndex++;
 
         if (this.currentCameraIndex === this.availableCameras.length) {
-            this.currentCameraIndex = 0;
+            this.currentCameraIndex = 1;
         }
 
         this.currentDevice = this.availableCameras[this.currentCameraIndex];
